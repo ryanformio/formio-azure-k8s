@@ -18,7 +18,6 @@ bash scripts/unpack.sh
 ```
 
 3. Deploy the Chart
-2. Unpack the version
 ```bash
 bash scripts/upgrade.sh 
 ### Will be prompted for...
