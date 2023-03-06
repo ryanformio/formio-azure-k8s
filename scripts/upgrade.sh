@@ -15,23 +15,23 @@ echo ""
 
 helm -n $NAMESPACE upgrade -i --debug --wait --atomic \
 --set appEnv=$APP_ENV \
---set image.repository=$IMAGE \
+--set image.repository=$API_IMAGE \
 --set pdf.repository=$PDF_IMAGE \
 --set mongo=$MONGO \
 --set licenseKey=$LICENSE_KEY \
 --set port=$PORT \
+--set debug=$DEBUG \
+--set baseUrl=$BASE_URL \
 --set portalEnabled=$PORTAL_ENABLED \
 --set adminEmail=$ADMIN_EMAIL \
 --set adminPass=$ADMIN_PASS \
 --set dbSecret=$DB_SECRET \
 --set jwtSecret=$JWT_SECRET \
 --set pdfServer=$PDF_SERVER \
---set debug=$DEBUG \
---set baseUrl=$BASE_URL \
---set formioS3Key=$FORMIO_S3_KEY \
---set formioS3Secret=$FORMIO_S3_SECRET \
---set formioS3Bucket=$FORMIO_S3_BUCKET \
---set formioS3Server=$FORMIO_S3_SERVER \
+# --set formioS3Key=$FORMIO_S3_KEY \
+# --set formioS3Secret=$FORMIO_S3_SECRET \
+# --set formioS3Bucket=$FORMIO_S3_BUCKET \
+# --set formioS3Server=$FORMIO_S3_SERVER \
 formio $PATH_TO_CHART
 
 echo ""
