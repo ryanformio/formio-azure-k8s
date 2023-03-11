@@ -6,6 +6,7 @@ appVersion:
 
 replicaCount: 1
 
+## App Vars
 appEnv:
 mongo:
 licenseKey:
@@ -17,7 +18,11 @@ dbSecret:
 jwtSecret:
 pdfServer:
 
-## For Minio
+## For Azure Blob
+formioAzureContainer:
+forimoAzureConnectionString:
+
+## For S3
 formioS3Key:
 formioS3Secret:
 formioS3Bucket:
@@ -95,7 +100,7 @@ resources: {}
 
 autoscaling:
   enabled: false
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
   targetMemoryUtilizationPercentage: 70

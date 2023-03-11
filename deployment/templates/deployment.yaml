@@ -32,18 +32,27 @@ spec:
             cpu: 500m
             memory: 256Mi
         env:
+          ## App Settings
           - name: APP_NAME
-            value : FormIo
-          - name: NODE_ENV
-            value : {{ .Values.appEnv }}
+            value : Form.io
           - name: PRIMARY
             value : "true"
+          - name: NODE_ENV
+            value : {{ .Values.appEnv }}
+          - name: LICENSE_KEY
+            value: {{ .Values.licenseKey }}
+          - name: BASE_URL
+            value: {{ .Values.baseUrl }}
+          - name: DEBUG
+            value: "formio.*"
           - name: PORT
             value : {{ .Values.port | quote }}
           - name: PORTAL_ENABLED
             value: {{ .Values.portalEnabled | quote }}
+          ## Mongo
           - name: MONGO
             value: {{ .Values.mongo }}
+          ## Default Admin Login
           - name: ADMIN_EMAIL
             value: {{ .Values.adminEmail }}
           - name: ADMIN_PASS
@@ -52,14 +61,8 @@ spec:
             value: {{ .Values.dbSecret }}
           - name: JWT_SECRET
             value: {{ .Values.jwtSecret }}
-          - name: LICENSE_KEY
-            value: {{ .Values.licenseKey }}
           - name: PDF_SERVER
             value: {{ .Values.pdfServer }}
-          - name: BASE_URL
-            value: {{ .Values.baseUrl }}
-          - name: DEBUG
-            value: {{ .Values.debug | quote }}
 
 ---
 ######################################################
@@ -145,15 +148,23 @@ spec:
             value: "4005"
           - name: MONGO
             value: {{ .Values.mongo }}
+          - name: LICENSE_KEY
+            value: {{ .Values.licenseKey }}
+          - name: DEBUG
+            value: "pdf.*"
+          ### Azure Blob Storage
+          - name: FORMIO_AZURE_CONTAINER
+            value: {{ .Values.formioAzureContainer }}
+          - name: FORMIO_AZURE_CONNECTION_STRING
+            value: {{ .Values.forimoAzureConnectionString }}
+          ### AWS S3 Storage
+          - name: FORMIO_S3_REGION
+            value: us-east-2
           - name: FORMIO_S3_KEY
             value: {{ .Values.formioS3Key }}
           - name: FORMIO_S3_SECRET
             value: {{ .Values.formioS3Secret }}
           - name: FORMIO_S3_BUCKET
             value: {{ .Values.formioS3Bucket }}
-          - name: FORMIO_S3_REGION
-            value: us-east-2
-          - name: LICENSE_KEY
-            value: {{ .Values.licenseKey }}
-          - name: DEBUG
-            value: {{ .Values.debug | quote }}
+          - name: FORMIO_S3_SERVER ## Optional for Minio
+            value: {{ .Values.formioS3Server }}
