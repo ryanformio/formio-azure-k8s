@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 read -p 'Enter NAMESPACE: ' NAMESPACE
 read -p 'Enter PATH_TO_CHART: ' PATH_TO_CHART
