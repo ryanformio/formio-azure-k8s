@@ -1,5 +1,7 @@
 # Form.io - Azure Kubernetes Documentation
 
+![alt text](https://github.com/ryanformio/static/blob/main/Image+2023-03-13+12.45.54.png?raw=true)
+
 ## Steps
 1. Create a helm package verison
 ```bash
